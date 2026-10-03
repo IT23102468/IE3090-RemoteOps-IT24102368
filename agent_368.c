@@ -5,6 +5,7 @@
  */
 
 #define _GNU_SOURCE
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -207,12 +208,12 @@ void handle_put(int fd, const char *filename, long filesize) {
     if (filesize < 0 || filesize > MAX_FILE_SIZE) {
         send_err(fd, "004", "FILE_TOO_LARGE");
         /* drain the data if any */
-        char drain[4096];
+       char drain[4096];
         long left = filesize;
         while (left > 0) {
-            size_t chunk = left > sizeof(drain) ? sizeof(drain) : left;
+            size_t chunk = (left > (long)sizeof(drain)) ? sizeof(drain) : (size_t)left;
             if (recv_exact(fd, drain, chunk) < 0) break;
-            left -= chunk;
+            left -= (long)chunk;
         }
         return;
     }
