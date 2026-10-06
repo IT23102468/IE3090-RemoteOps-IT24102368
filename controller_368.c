@@ -266,7 +266,8 @@ void do_quit(void) {
 
 /* ---------- Interactive menu ---------- */
 void print_menu(void) {
-    printf("\n===== RemoteOps Controller (IT24102368) =====\n");
+    printf("\n _    RemoteOps Controller (IT24102368)    _ \n");
+    printf("\n Select You Choice and Enter the Number \n");
     printf("1. AUTH\n");
     printf("2. SYSINFO\n");
     printf("3. LISTPROC\n");
