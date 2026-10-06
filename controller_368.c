@@ -207,7 +207,7 @@ void do_get(const char *remotename, const char *localfile) {
         remaining -= (long)chunk;
     }
     fclose(fp);
-    printf("File saved as %s (%ld bytes)\n", localfile, filesize);
+    printf("Download complete → File saved as '%s' (%ld bytes)\n", localfile, filesize);
 }
 
 void do_monitor_start(int udp_port) {
