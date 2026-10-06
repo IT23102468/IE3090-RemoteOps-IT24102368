@@ -241,6 +241,7 @@ void do_monitor_start(int udp_port) {
     char resp[MAX_LINE];
     if (recv_line(tcp_fd, resp, sizeof(resp)) < 0) return;
     printf("← %s\n", resp);
+    printf("UDP monitoring started. Waiting for system stats...\n");
 }
 
 void do_monitor_stop(void) {
