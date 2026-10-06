@@ -207,7 +207,7 @@ void do_get(const char *remotename, const char *localfile) {
         remaining -= (long)chunk;
     }
     fclose(fp);
-    printf("File saved as %s (%ld bytes)\n", localfile, filesize);
+    printf("Download complete → File saved as '%s' (%ld bytes)\n", localfile, filesize);
 }
 
 void do_monitor_start(int udp_port) {
@@ -241,6 +241,7 @@ void do_monitor_start(int udp_port) {
     char resp[MAX_LINE];
     if (recv_line(tcp_fd, resp, sizeof(resp)) < 0) return;
     printf("← %s\n", resp);
+    printf("UDP monitoring started. Waiting for system stats...\n");
 }
 
 void do_monitor_stop(void) {
@@ -266,7 +267,8 @@ void do_quit(void) {
 
 /* ---------- Interactive menu ---------- */
 void print_menu(void) {
-    printf("\n===== RemoteOps Controller (IT24102368) =====\n");
+    printf("\n _    RemoteOps Controller (IT24102368)    _ \n");
+    printf("\n Select You Choice and Enter the Number \n");
     printf("1. AUTH\n");
     printf("2. SYSINFO\n");
     printf("3. LISTPROC\n");

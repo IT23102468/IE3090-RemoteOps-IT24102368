@@ -473,6 +473,6 @@ int main(void) {
     }
 
     close(listen_fd);
-    log_msg("Agent shutting down");
+    log_msg("Agent shutting down NOW");
     return 0;
 }
